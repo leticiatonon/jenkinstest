@@ -1,9 +1,21 @@
 pipeline {
   agent any
   stages {
-    stage('Intialize') {
+    stage('Inicial') {
+      agent any
       steps {
-        echo 'Teste'
+        echo 'Inicio do Processo'
+      }
+    }
+    stage('') {
+      agent {
+        docker {
+          image 'nginx'
+        }
+
+      }
+      steps {
+        echo 'Docker'
       }
     }
   }
