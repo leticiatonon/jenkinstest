@@ -7,7 +7,7 @@ pipeline {
         echo 'Inicio do Processo'
       }
     }
-    stage('') {
+    stage('Docker') {
       agent {
         docker {
           image 'nginx'
