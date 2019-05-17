@@ -10,7 +10,7 @@ pipeline {
     stage('Docker') {
       agent {
         docker {
-          image 'hello-world'
+          image 'nginx'
         }
 
       }
