@@ -30,6 +30,11 @@ pipeline {
         sh 'echo Analysis'
       }
     }
+    stage('Aproved to Deploy') {
+      steps {
+        input 'Aprovar Deploy'
+      }
+    }
     stage('Deploy') {
       steps {
         sh 'echo Deploy'
