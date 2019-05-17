@@ -4,13 +4,13 @@ pipeline {
     stage('Inicial') {
       agent any
       steps {
-        echo 'Inicio do Processo'
+        echo 'Inicio dos Testes'
       }
     }
     stage('Docker') {
       agent {
         docker {
-          image 'nginx'
+          image 'hello-world'
         }
 
       }
