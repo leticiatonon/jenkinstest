@@ -1,21 +1,38 @@
 pipeline {
   agent any
   stages {
-    stage('Inicial') {
-      agent any
+    stage('Build') {
       steps {
-        echo 'Inicio dos Testes'
+        sh 'echo Build'
       }
     }
-    stage('Docker') {
-      agent {
-        docker {
-          image 'nginx'
+    stage('Backend') {
+      parallel {
+        stage('Backend') {
+          steps {
+            sh 'echo Unit'
+          }
         }
-
+        stage('Performance') {
+          steps {
+            sh 'echo Performance'
+          }
+        }
       }
+    }
+    stage('Frontend') {
       steps {
-        echo 'Docker'
+        sh 'echo Front'
+      }
+    }
+    stage('Static Analysis') {
+      steps {
+        sh 'echo Analysis'
+      }
+    }
+    stage('Deploy') {
+      steps {
+        sh 'echo Deploy'
       }
     }
   }
